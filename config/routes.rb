@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   get '/', to: 'root#index'
 
+  get '/api/title', to: 'title#index'
 end
