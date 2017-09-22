@@ -1,24 +1,34 @@
-# README
+# Rails with integrated Angular
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Deployable as single container to heroku
 
-Things you may want to cover:
+## Steps to reproduce
 
-* Ruby version
+### rails new rails-with-integrated-angular --webpack=angular -T
+-T so that we can use rspec instead, see https://stackoverflow.com/questions/6728618/how-can-i-tell-rails-to-use-rspec-instead-of-test-unit-when-creating-a-new-rails
 
-* System dependencies
+... somehow "--webpack=angular" didn't work, so I had to also do
 
-* Configuration
+`rails webpacker:install`
 
-* Database creation
+`rails webpacker:install:angular`
 
-* Database initialization
+### create RootController
+See https://github.com/MilenaMMay/rails-with-integrated-angular/commit/361d7d529f22b66c635d5dd2b8e5e8ed3747acc1
 
-* How to run the test suite
+### Use postgres to be able to deploy on heroku
 
-* Services (job queues, cache servers, search engines, etc.)
+### Specify yarn version for webpacker
+!!! IMPORTANT !!!
+you also need to add the buildpack nodejs to heroku - otherwise this
+config is not read:
 
-* Deployment instructions
+heroku buildpacks:add --index 1 heroku/nodejs
 
-* ...
+### Let angular call rails
+See https://github.com/MilenaMMay/rails-with-integrated-angular/commit/1ca4a73e6b04b1d5db54935783b827345511c50b  
+
+## Deploy to heroku
+
+`heroku git:remote -a [heroku-app-name]`
+`git push heroku master`
