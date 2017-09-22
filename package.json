@@ -2,7 +2,17 @@
   "name": "rails-with-integrated-angular",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.0.1"
+    "@angular/common": "^4.4.3",
+    "@angular/compiler": "^4.4.3",
+    "@angular/core": "^4.4.3",
+    "@angular/platform-browser": "^4.4.3",
+    "@angular/platform-browser-dynamic": "^4.4.3",
+    "@rails/webpacker": "^3.0.1",
+    "core-js": "^2.5.1",
+    "rxjs": "^5.4.3",
+    "ts-loader": "^2.3.7",
+    "typescript": "^2.5.2",
+    "zone.js": "^0.8.17"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.8.2"
